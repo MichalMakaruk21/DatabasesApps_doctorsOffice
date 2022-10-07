@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Program.h"
+
 namespace DatabasesAppsdoctorsOffice {
 
 	using namespace System;
@@ -143,8 +145,17 @@ namespace DatabasesAppsdoctorsOffice {
 		}
 #pragma endregion
 	private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
 	}
 private: System::Void btnLogIn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	this->Hide();
+	Program^ program = gcnew Program();
+	program->ShowDialog();
+	this->Close();
 }
+
+
+
 };
 }
