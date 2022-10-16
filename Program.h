@@ -15,8 +15,11 @@ namespace DatabasesAppsdoctorsOffice {
 	public ref class Program : public System::Windows::Forms::Form
 	{
 	public:
-		Program(void)
+		int id_user;
+		Program(int user)
 		{
+			id_user = user;
+
 			InitializeComponent();
 			//
 			//TODO: W tym miejscu dodaj kod konstruktora

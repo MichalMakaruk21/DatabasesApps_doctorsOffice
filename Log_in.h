@@ -10,6 +10,7 @@ namespace DatabasesAppsdoctorsOffice {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MySql::Data::MySqlClient;
 
 	/// <summary>
 	/// Podsumowanie informacji o Log_in
@@ -149,13 +150,45 @@ namespace DatabasesAppsdoctorsOffice {
 	}
 private: System::Void btnLogIn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	this->Hide();
-	Program^ program = gcnew Program();
-	program->ShowDialog();
-	this->Close();
+	String^ db_conf = L" datasource=localhost; port=3306; username=root; password=root123; database=databasesapps_doctorsoffice";
+	MySqlConnection^ db_conn = gcnew MySqlConnection(db_conf);
+	MySqlCommand^ query = gcnew MySqlCommand("SELECT user_id FROM databasesapps_doctorsoffice.user Where user_name = '"+txtL_User->Text+"' and user_password = md5('" + txtL_Password->Text + "');", db_conn);
+
+
+	MySqlDataReader^ read;
+
+	try
+	{
+		db_conn->Open();
+		read = query->ExecuteReader();
+
+		if (read->Read())
+		{
+			int id_user = read->GetInt32(0);
+
+			this->Hide();
+			Program^ program = gcnew Program(id_user);
+			program->ShowDialog();
+			this->Close();
+		}
+
+		else 
+		{
+			MessageBox::Show("Incorrect username or password");
+
+			//u -> admin
+			//p -> admin
+
+
+
+		}
+	}
+	catch(Exception^ ex_dbcon)
+	{
+		MessageBox::Show(ex_dbcon->Message);
+	}
+
+	db_conn->Close();
 }
-
-
-
 };
 }
