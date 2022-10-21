@@ -137,6 +137,9 @@
     <EmbeddedResource Include="Log_in.resx">
       <DependentUpon>Log_in.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Program.resx">
+      <DependentUpon>Program.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
