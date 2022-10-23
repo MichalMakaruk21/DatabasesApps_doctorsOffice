@@ -73,9 +73,10 @@ namespace DatabasesAppsdoctorsOffice {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(64, 9);
+			this->label1->Location = System::Drawing::Point(171, 21);
+			this->label1->Margin = System::Windows::Forms::Padding(8, 0, 8, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(119, 13);
+			this->label1->Size = System::Drawing::Size(280, 32);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Nazwa u¿ytkownika";
 			// 
@@ -84,34 +85,40 @@ namespace DatabasesAppsdoctorsOffice {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label2->Location = System::Drawing::Point(92, 82);
+			this->label2->Location = System::Drawing::Point(245, 196);
+			this->label2->Margin = System::Windows::Forms::Padding(8, 0, 8, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(41, 13);
+			this->label2->Size = System::Drawing::Size(93, 32);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Has³o";
 			// 
 			// txtL_User
 			// 
-			this->txtL_User->Location = System::Drawing::Point(67, 42);
+			this->txtL_User->Location = System::Drawing::Point(179, 100);
+			this->txtL_User->Margin = System::Windows::Forms::Padding(8, 7, 8, 7);
 			this->txtL_User->Multiline = true;
 			this->txtL_User->Name = L"txtL_User";
-			this->txtL_User->Size = System::Drawing::Size(100, 20);
+			this->txtL_User->Size = System::Drawing::Size(260, 42);
 			this->txtL_User->TabIndex = 2;
+			this->txtL_User->Text = L"admin";
 			// 
 			// txtL_Password
 			// 
-			this->txtL_Password->Location = System::Drawing::Point(67, 113);
+			this->txtL_Password->Location = System::Drawing::Point(179, 269);
+			this->txtL_Password->Margin = System::Windows::Forms::Padding(8, 7, 8, 7);
 			this->txtL_Password->Multiline = true;
 			this->txtL_Password->Name = L"txtL_Password";
 			this->txtL_Password->PasswordChar = '*';
-			this->txtL_Password->Size = System::Drawing::Size(100, 20);
+			this->txtL_Password->Size = System::Drawing::Size(260, 42);
 			this->txtL_Password->TabIndex = 3;
+			this->txtL_Password->Text = L"admin";
 			// 
 			// btnLogIn
 			// 
-			this->btnLogIn->Location = System::Drawing::Point(12, 160);
+			this->btnLogIn->Location = System::Drawing::Point(32, 382);
+			this->btnLogIn->Margin = System::Windows::Forms::Padding(8, 7, 8, 7);
 			this->btnLogIn->Name = L"btnLogIn";
-			this->btnLogIn->Size = System::Drawing::Size(75, 23);
+			this->btnLogIn->Size = System::Drawing::Size(200, 55);
 			this->btnLogIn->TabIndex = 4;
 			this->btnLogIn->Text = L"Zaloguj";
 			this->btnLogIn->UseVisualStyleBackColor = true;
@@ -119,9 +126,10 @@ namespace DatabasesAppsdoctorsOffice {
 			// 
 			// btnCancel
 			// 
-			this->btnCancel->Location = System::Drawing::Point(164, 160);
+			this->btnCancel->Location = System::Drawing::Point(437, 382);
+			this->btnCancel->Margin = System::Windows::Forms::Padding(8, 7, 8, 7);
 			this->btnCancel->Name = L"btnCancel";
-			this->btnCancel->Size = System::Drawing::Size(75, 23);
+			this->btnCancel->Size = System::Drawing::Size(200, 55);
 			this->btnCancel->TabIndex = 5;
 			this->btnCancel->Text = L"Anuluj";
 			this->btnCancel->UseVisualStyleBackColor = true;
@@ -129,15 +137,16 @@ namespace DatabasesAppsdoctorsOffice {
 			// 
 			// Log_in
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(251, 194);
+			this->ClientSize = System::Drawing::Size(779, 463);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnLogIn);
 			this->Controls->Add(this->txtL_Password);
 			this->Controls->Add(this->txtL_User);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->Margin = System::Windows::Forms::Padding(8, 7, 8, 7);
 			this->Name = L"Log_in";
 			this->Text = L"Log_in";
 			this->ResumeLayout(false);
