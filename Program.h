@@ -162,7 +162,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
 			this->tabPage2->Size = System::Drawing::Size(2086, 1483);
 			this->tabPage2->TabIndex = 1;
-			this->tabPage2->Text = L"tabPage2";
+			this->tabPage2->Text = L"Password change";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
 			// groupBox1
@@ -176,7 +176,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Location = System::Drawing::Point(170, 266);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(899, 586);
+			this->groupBox1->Size = System::Drawing::Size(624, 587);
 			this->groupBox1->TabIndex = 2;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"groupBox1";
@@ -184,7 +184,7 @@ namespace DatabasesAppsdoctorsOffice {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(24, 312);
+			this->label4->Location = System::Drawing::Point(49, 271);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(238, 32);
 			this->label4->TabIndex = 6;
@@ -193,7 +193,7 @@ namespace DatabasesAppsdoctorsOffice {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(6, 183);
+			this->label3->Location = System::Drawing::Point(49, 177);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(202, 32);
 			this->label3->TabIndex = 5;
@@ -201,7 +201,7 @@ namespace DatabasesAppsdoctorsOffice {
 			// 
 			// btnChangePassword
 			// 
-			this->btnChangePassword->Location = System::Drawing::Point(180, 393);
+			this->btnChangePassword->Location = System::Drawing::Point(55, 426);
 			this->btnChangePassword->Name = L"btnChangePassword";
 			this->btnChangePassword->Size = System::Drawing::Size(281, 121);
 			this->btnChangePassword->TabIndex = 4;
@@ -211,22 +211,25 @@ namespace DatabasesAppsdoctorsOffice {
 			// 
 			// txtRepeatNewPassword
 			// 
-			this->txtRepeatNewPassword->Location = System::Drawing::Point(269, 271);
+			this->txtRepeatNewPassword->Location = System::Drawing::Point(303, 271);
 			this->txtRepeatNewPassword->Name = L"txtRepeatNewPassword";
+			this->txtRepeatNewPassword->PasswordChar = '*';
 			this->txtRepeatNewPassword->Size = System::Drawing::Size(259, 38);
 			this->txtRepeatNewPassword->TabIndex = 3;
 			// 
 			// txtNewPassword
 			// 
-			this->txtNewPassword->Location = System::Drawing::Point(270, 177);
+			this->txtNewPassword->Location = System::Drawing::Point(304, 177);
 			this->txtNewPassword->Name = L"txtNewPassword";
+			this->txtNewPassword->PasswordChar = '*';
 			this->txtNewPassword->Size = System::Drawing::Size(258, 38);
 			this->txtNewPassword->TabIndex = 2;
 			// 
 			// txtCurrentPassword
 			// 
-			this->txtCurrentPassword->Location = System::Drawing::Point(275, 80);
+			this->txtCurrentPassword->Location = System::Drawing::Point(303, 80);
 			this->txtCurrentPassword->Name = L"txtCurrentPassword";
+			this->txtCurrentPassword->PasswordChar = '*';
 			this->txtCurrentPassword->Size = System::Drawing::Size(253, 38);
 			this->txtCurrentPassword->TabIndex = 1;
 			// 
@@ -295,8 +298,10 @@ private: System::Void btnChangePassword_Click(System::Object^ sender, System::Ev
 		{
 			db_conn->Open();
 
-			if ((query->ExecuteNonQuery()) && (txtNewPassword->Text == txtRepeatNewPassword->Text) && (!txtNewPassword->Text->Empty))
+			if ((txtNewPassword->Text == txtRepeatNewPassword->Text) && (txtNewPassword->Text != ""))
 			{
+				query->ExecuteNonQuery();
+
 				MessageBox::Show("Password has been changed");
 				// Test -> XD
 			}
