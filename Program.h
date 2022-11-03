@@ -17,8 +17,8 @@ namespace DatabasesAppsdoctorsOffice {
 	{
 	public:
 		int user_id;
-	
-		   String^ db_conf = L" datasource=localhost; port=3306; username=root; password=root123; database=databasesapps_doctorsoffice";
+// Rêczne dodanie public
+	public: String^ db_conf = L" datasource=localhost; port=3306; username=root; password=root123; database=databasesapps_doctorsoffice";
 
 		Program(int user)
 		{
@@ -57,6 +57,19 @@ namespace DatabasesAppsdoctorsOffice {
 	private: System::Windows::Forms::Button^ btnUsersSearch;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TabPage^ tabPage2;
+	private: System::Windows::Forms::GroupBox^ gUserEditor;
+	private: System::Windows::Forms::CheckBox^ chB_employee;
+	public:
+	private: System::Windows::Forms::Button^ btnDeleteUser;
+	public:
+	private: System::Windows::Forms::Button^ btnEditUser;
+	private: System::Windows::Forms::Button^ btnAddUser;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::TextBox^ txtLogin;
+	private: System::Windows::Forms::TextBox^ txtSurname;
+	private: System::Windows::Forms::TextBox^ txtName;
 
 	private:
 		/// <summary>
@@ -73,6 +86,14 @@ namespace DatabasesAppsdoctorsOffice {
 		{
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tbPage_Users = (gcnew System::Windows::Forms::TabPage());
+			this->gUserEditor = (gcnew System::Windows::Forms::GroupBox());
+			this->chB_employee = (gcnew System::Windows::Forms::CheckBox());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->txtLogin = (gcnew System::Windows::Forms::TextBox());
+			this->txtSurname = (gcnew System::Windows::Forms::TextBox());
+			this->txtName = (gcnew System::Windows::Forms::TextBox());
 			this->dgwUsers = (gcnew System::Windows::Forms::DataGridView());
 			this->txtUserSearch = (gcnew System::Windows::Forms::TextBox());
 			this->btnUsersSearch = (gcnew System::Windows::Forms::Button());
@@ -86,8 +107,12 @@ namespace DatabasesAppsdoctorsOffice {
 			this->txtNewPassword = (gcnew System::Windows::Forms::TextBox());
 			this->txtCurrentPassword = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->btnAddUser = (gcnew System::Windows::Forms::Button());
+			this->btnEditUser = (gcnew System::Windows::Forms::Button());
+			this->btnDeleteUser = (gcnew System::Windows::Forms::Button());
 			this->tabControl1->SuspendLayout();
 			this->tbPage_Users->SuspendLayout();
+			this->gUserEditor->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgwUsers))->BeginInit();
 			this->tabPage2->SuspendLayout();
 			this->groupBox1->SuspendLayout();
@@ -105,6 +130,10 @@ namespace DatabasesAppsdoctorsOffice {
 			// 
 			// tbPage_Users
 			// 
+			this->tbPage_Users->Controls->Add(this->btnDeleteUser);
+			this->tbPage_Users->Controls->Add(this->btnEditUser);
+			this->tbPage_Users->Controls->Add(this->btnAddUser);
+			this->tbPage_Users->Controls->Add(this->gUserEditor);
 			this->tbPage_Users->Controls->Add(this->dgwUsers);
 			this->tbPage_Users->Controls->Add(this->txtUserSearch);
 			this->tbPage_Users->Controls->Add(this->btnUsersSearch);
@@ -117,6 +146,80 @@ namespace DatabasesAppsdoctorsOffice {
 			this->tbPage_Users->Text = L"Users";
 			this->tbPage_Users->UseVisualStyleBackColor = true;
 			// 
+			// gUserEditor
+			// 
+			this->gUserEditor->Controls->Add(this->chB_employee);
+			this->gUserEditor->Controls->Add(this->label7);
+			this->gUserEditor->Controls->Add(this->label6);
+			this->gUserEditor->Controls->Add(this->label5);
+			this->gUserEditor->Controls->Add(this->txtLogin);
+			this->gUserEditor->Controls->Add(this->txtSurname);
+			this->gUserEditor->Controls->Add(this->txtName);
+			this->gUserEditor->Location = System::Drawing::Point(38, 218);
+			this->gUserEditor->Name = L"gUserEditor";
+			this->gUserEditor->Size = System::Drawing::Size(861, 753);
+			this->gUserEditor->TabIndex = 4;
+			this->gUserEditor->TabStop = false;
+			this->gUserEditor->Text = L"User data editor";
+			// 
+			// chB_employee
+			// 
+			this->chB_employee->AutoSize = true;
+			this->chB_employee->Location = System::Drawing::Point(443, 552);
+			this->chB_employee->Name = L"chB_employee";
+			this->chB_employee->Size = System::Drawing::Size(180, 36);
+			this->chB_employee->TabIndex = 5;
+			this->chB_employee->Text = L"Employee";
+			this->chB_employee->UseVisualStyleBackColor = true;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(85, 382);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(86, 32);
+			this->label7->TabIndex = 5;
+			this->label7->Text = L"Login";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(71, 263);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(130, 32);
+			this->label6->TabIndex = 4;
+			this->label6->Text = L"Surname";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(67, 140);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(90, 32);
+			this->label5->TabIndex = 3;
+			this->label5->Text = L"Name";
+			// 
+			// txtLogin
+			// 
+			this->txtLogin->Location = System::Drawing::Point(383, 392);
+			this->txtLogin->Name = L"txtLogin";
+			this->txtLogin->Size = System::Drawing::Size(299, 38);
+			this->txtLogin->TabIndex = 2;
+			// 
+			// txtSurname
+			// 
+			this->txtSurname->Location = System::Drawing::Point(383, 278);
+			this->txtSurname->Name = L"txtSurname";
+			this->txtSurname->Size = System::Drawing::Size(299, 38);
+			this->txtSurname->TabIndex = 1;
+			// 
+			// txtName
+			// 
+			this->txtName->Location = System::Drawing::Point(383, 140);
+			this->txtName->Name = L"txtName";
+			this->txtName->Size = System::Drawing::Size(299, 38);
+			this->txtName->TabIndex = 0;
+			// 
 			// dgwUsers
 			// 
 			this->dgwUsers->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
@@ -126,6 +229,8 @@ namespace DatabasesAppsdoctorsOffice {
 			this->dgwUsers->RowTemplate->Height = 40;
 			this->dgwUsers->Size = System::Drawing::Size(1038, 1469);
 			this->dgwUsers->TabIndex = 3;
+			this->dgwUsers->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Program::dgwUsers_CellClick);
+			this->dgwUsers->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Program::dgwUsers_CellContentClick);
 			// 
 			// txtUserSearch
 			// 
@@ -201,6 +306,7 @@ namespace DatabasesAppsdoctorsOffice {
 			// 
 			// btnChangePassword
 			// 
+			this->btnChangePassword->Enabled = false;
 			this->btnChangePassword->Location = System::Drawing::Point(55, 426);
 			this->btnChangePassword->Name = L"btnChangePassword";
 			this->btnChangePassword->Size = System::Drawing::Size(281, 121);
@@ -216,6 +322,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->txtRepeatNewPassword->PasswordChar = '*';
 			this->txtRepeatNewPassword->Size = System::Drawing::Size(259, 38);
 			this->txtRepeatNewPassword->TabIndex = 3;
+			this->txtRepeatNewPassword->TextChanged += gcnew System::EventHandler(this, &Program::txtRepeatNewPassword_TextChanged);
 			// 
 			// txtNewPassword
 			// 
@@ -224,6 +331,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->txtNewPassword->PasswordChar = '*';
 			this->txtNewPassword->Size = System::Drawing::Size(258, 38);
 			this->txtNewPassword->TabIndex = 2;
+			this->txtNewPassword->TextChanged += gcnew System::EventHandler(this, &Program::txtNewPassword_TextChanged);
 			// 
 			// txtCurrentPassword
 			// 
@@ -232,6 +340,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->txtCurrentPassword->PasswordChar = '*';
 			this->txtCurrentPassword->Size = System::Drawing::Size(253, 38);
 			this->txtCurrentPassword->TabIndex = 1;
+			this->txtCurrentPassword->TextChanged += gcnew System::EventHandler(this, &Program::txtCurrentPassword_TextChanged);
 			// 
 			// label2
 			// 
@@ -241,6 +350,34 @@ namespace DatabasesAppsdoctorsOffice {
 			this->label2->Size = System::Drawing::Size(228, 32);
 			this->label2->TabIndex = 0;
 			this->label2->Text = L"Curent password";
+			// 
+			// btnAddUser
+			// 
+			this->btnAddUser->Location = System::Drawing::Point(89, 1170);
+			this->btnAddUser->Name = L"btnAddUser";
+			this->btnAddUser->Size = System::Drawing::Size(150, 64);
+			this->btnAddUser->TabIndex = 5;
+			this->btnAddUser->Text = L"Add";
+			this->btnAddUser->UseVisualStyleBackColor = true;
+			this->btnAddUser->Click += gcnew System::EventHandler(this, &Program::btnAddUser_Click);
+			// 
+			// btnEditUser
+			// 
+			this->btnEditUser->Location = System::Drawing::Point(303, 1170);
+			this->btnEditUser->Name = L"btnEditUser";
+			this->btnEditUser->Size = System::Drawing::Size(162, 64);
+			this->btnEditUser->TabIndex = 6;
+			this->btnEditUser->Text = L"Edit";
+			this->btnEditUser->UseVisualStyleBackColor = true;
+			// 
+			// btnDeleteUser
+			// 
+			this->btnDeleteUser->Location = System::Drawing::Point(574, 1170);
+			this->btnDeleteUser->Name = L"btnDeleteUser";
+			this->btnDeleteUser->Size = System::Drawing::Size(172, 64);
+			this->btnDeleteUser->TabIndex = 7;
+			this->btnDeleteUser->Text = L"Delete";
+			this->btnDeleteUser->UseVisualStyleBackColor = true;
 			// 
 			// Program
 			// 
@@ -253,6 +390,8 @@ namespace DatabasesAppsdoctorsOffice {
 			this->tabControl1->ResumeLayout(false);
 			this->tbPage_Users->ResumeLayout(false);
 			this->tbPage_Users->PerformLayout();
+			this->gUserEditor->ResumeLayout(false);
+			this->gUserEditor->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgwUsers))->EndInit();
 			this->tabPage2->ResumeLayout(false);
 			this->groupBox1->ResumeLayout(false);
@@ -264,7 +403,7 @@ namespace DatabasesAppsdoctorsOffice {
 	private: System::Void btnUsersSearch_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		MySqlConnection^ db_conn = gcnew MySqlConnection(db_conf);
-		MySqlCommand^ query = gcnew MySqlCommand("SELECT user_id , user_name, user_firstName, user_surname, user_type FROM databasesapps_doctorsoffice.user Where CONCAT(user_name, '', user_firstName, user_surname) LIKE '%"+txtUserSearch->Text+"%';", db_conn);
+		MySqlCommand^ query = gcnew MySqlCommand("SELECT user_id, user_name as 'Login', user_firstName 'Firstname', user_surname as 'Surname', user_type as 'Type' FROM databasesapps_doctorsoffice.user Where CONCAT(user_name, '', user_firstName, user_surname) LIKE '%"+txtUserSearch->Text+"%';", db_conn);
 
 		try
 		{
@@ -288,6 +427,24 @@ namespace DatabasesAppsdoctorsOffice {
 
 		dgwUsers->Columns[0]->Visible = false;
 	}
+
+
+
+
+		   int id_record;
+
+	private: Void btnChangePassword_show() {
+		
+		if ((txtNewPassword->Text == txtRepeatNewPassword->Text) && (txtNewPassword->Text != "") && (txtCurrentPassword->Text != "") && (txtNewPassword->Text->Length > 4)) {
+			btnChangePassword->Enabled = true;
+		}
+		else{
+			btnChangePassword->Enabled = false;
+		}
+
+	}
+
+
 private: System::Void btnChangePassword_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		MySqlConnection^ db_conn = gcnew MySqlConnection(db_conf);
@@ -297,10 +454,10 @@ private: System::Void btnChangePassword_Click(System::Object^ sender, System::Ev
 		try
 		{
 			db_conn->Open();
-
-			if ((txtNewPassword->Text == txtRepeatNewPassword->Text) && (txtNewPassword->Text != ""))
+			// w if (txtNewPassword->Text == txtRepeatNewPassword->Text) && (txtNewPassword->Text != "")
+			if (query->ExecuteNonQuery())
 			{
-				query->ExecuteNonQuery();
+				
 
 				MessageBox::Show("Password has been changed");
 				// Test -> XD
@@ -319,5 +476,69 @@ private: System::Void btnChangePassword_Click(System::Object^ sender, System::Ev
 
 
 	}
+private: System::Void txtCurrentPassword_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	btnChangePassword_show();
+}
+private: System::Void txtNewPassword_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	btnChangePassword_show();
+}
+private: System::Void txtRepeatNewPassword_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	btnChangePassword_show();
+}
+private: System::Void dgwUsers_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		// Usless
+}
+private: System::Void dgwUsers_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+
+	if (e->RowIndex >= 0) {
+		id_record = Convert::ToInt32(dgwUsers->Rows[e->RowIndex]->Cells[0]->Value);
+
+		txtName->Text = dgwUsers->Rows[e->RowIndex]->Cells["Firstname"]->Value->ToString();
+
+		txtSurname->Text = dgwUsers->Rows[e->RowIndex]->Cells["Surname"]->Value->ToString();
+
+		txtLogin->Text = dgwUsers->Rows[e->RowIndex]->Cells["Login"]->Value->ToString();
+
+		chB_employee->Checked = Convert::ToBoolean(dgwUsers->Rows[e->RowIndex]->Cells["Type"]->Value);
+
+		//txtLogin->Text = dgwUsers->Rows[e->RowIndex]->Cells["Login"]->Value->ToString();
+		// Zaimplemetuj Alliasy w zapytaniu
+	}
+}
+private: System::Void btnAddUser_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	if ((txtName->Text->Length < 3 || txtSurname->Text->Length <3 || txtLogin->Text->Length < 6))
+	{
+		MessageBox::Show("Incorrect parameters");
+	}
+	else
+	{
+
+		MySqlConnection^ db_conn = gcnew MySqlConnection(db_conf);
+
+		MySqlCommand^ query = db_conn->CreateCommand();
+
+		MySqlTransaction^ transaction;
+
+		db_conn->Open();
+		// B³¹d
+		transaction = db_conn->BeginTransaction(IsolationLevel::ReadCommitted);
+
+		query->Connection = db_conn;
+		query->Transaction = transaction;
+
+		try
+		{
+			// default passowrd == password
+			query->CommandText = "Insert Into databasesapps_doctorsoffice.user (user_name, user_firstname, user_surname, user_type, user_password) Values('" + txtLogin->Text + "', '" + txtName->Text + "', '" + txtSurname->Text + "', " + bool(chB_employee->Checked)+", md5('password')); ";
+			query->ExecuteNonQuery();
+			transaction->Commit();
+		}
+		catch (Exception^ systemError)
+		{
+			MessageBox::Show(systemError->Message);
+		}
+	}
+}
 };
 }
