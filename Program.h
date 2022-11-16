@@ -675,12 +675,14 @@ namespace DatabasesAppsdoctorsOffice {
 
 			try
 			{
-				// default passowrd == user login
-				query->CommandText = "DELETE FROM databasesapps_doctorsoffice.user WHERE user_id="+id_record+";";
-				query->ExecuteNonQuery();
-				transaction->Commit();
+				if (MessageBox::Show("Are you sure you want to delete user " + txtLogin->Text + "?", "Warning!!!", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
+					// default passowrd == user login
+					query->CommandText = "DELETE FROM databasesapps_doctorsoffice.user WHERE user_id=" + id_record + ";";
+					query->ExecuteNonQuery();
+					transaction->Commit();
 
-				MessageBox::Show("User has been deleted");
+					MessageBox::Show("User has been deleted");
+				}
 			}
 			catch (Exception^ systemError)
 			{
