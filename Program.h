@@ -127,7 +127,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->tabControl1->Location = System::Drawing::Point(12, -1);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(2106, 1541);
+			this->tabControl1->Size = System::Drawing::Size(2400, 1541);
 			this->tabControl1->TabIndex = 0;
 			// 
 			// tbPage_Users
@@ -143,7 +143,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->tbPage_Users->Location = System::Drawing::Point(10, 48);
 			this->tbPage_Users->Name = L"tbPage_Users";
 			this->tbPage_Users->Padding = System::Windows::Forms::Padding(3);
-			this->tbPage_Users->Size = System::Drawing::Size(2086, 1483);
+			this->tbPage_Users->Size = System::Drawing::Size(2380, 1483);
 			this->tbPage_Users->TabIndex = 0;
 			this->tbPage_Users->Text = L"Users";
 			this->tbPage_Users->UseVisualStyleBackColor = true;
@@ -259,7 +259,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->dgwUsers->Name = L"dgwUsers";
 			this->dgwUsers->RowHeadersWidth = 102;
 			this->dgwUsers->RowTemplate->Height = 40;
-			this->dgwUsers->Size = System::Drawing::Size(1038, 1469);
+			this->dgwUsers->Size = System::Drawing::Size(1349, 1469);
 			this->dgwUsers->TabIndex = 3;
 			this->dgwUsers->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Program::dgwUsers_CellClick);
 			this->dgwUsers->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Program::dgwUsers_CellContentClick);
@@ -607,7 +607,7 @@ namespace DatabasesAppsdoctorsOffice {
 
 		userType();
 
-		if ((txtName->Text->Length < 3 || txtSurname->Text->Length < 3 || txtLogin->Text->Length < 6))
+		if ((txtName->Text->Length < 3 || txtSurname->Text->Length < 3 || txtLogin->Text->Length < 3))
 		{
 			MessageBox::Show("Incorrect parameters");
 		}
@@ -628,22 +628,27 @@ namespace DatabasesAppsdoctorsOffice {
 			query->Connection = db_conn;
 			query->Transaction = transaction;
 
-			try
-			{
-				// default passowrd == user login
-				query->CommandText = "Update databasesapps_doctorsoffice.user (user_name, user_firstname, user_surname, user_type, user_password) Values('" + txtLogin->Text + "', '" + txtName->Text + "', '" + txtSurname->Text + "', " + user_type + ", md5(" + txtLogin->Text + ")); ";
-				query->ExecuteNonQuery();
-				transaction->Commit();
+			if (id_record == 1) {
+				MessageBox::Show("You don't have permissions to update administrator");
+			}
+			else {
+				try
+				{
+					// default passowrd == user login
+					query->CommandText = "Update databasesapps_doctorsoffice.user Set user_name = '" + txtLogin->Text + "', user_firstname = '" + txtName->Text + "', user_surname = '" + txtSurname->Text + "', user_type = " + user_type + " Where user_id = " + id_record + ";";
+					query->ExecuteNonQuery();
+					transaction->Commit();
 
-				MessageBox::Show("User has been modyfied");
+					MessageBox::Show("User has been modyfied");
+				}
+				catch (Exception^ systemError)
+				{
+					MessageBox::Show(systemError->Message);
+				}
+				db_conn->Close();
+				refereshDataGrid();
+				clearGroupBoxControls(gUserEditor);
 			}
-			catch (Exception^ systemError)
-			{
-				MessageBox::Show(systemError->Message);
-			}
-			db_conn->Close();
-			refereshDataGrid();
-			clearGroupBoxControls(gUserEditor);
 		}
 	};
 	private: System::Void btnDeleteUser_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -671,7 +676,7 @@ namespace DatabasesAppsdoctorsOffice {
 			try
 			{
 				// default passowrd == user login
-				query->CommandText = "Delete Form databasesapps_doctorsoffice.user Where user_id="+id_record+"; ";
+				query->CommandText = "DELETE FROM databasesapps_doctorsoffice.user WHERE user_id="+id_record+";";
 				query->ExecuteNonQuery();
 				transaction->Commit();
 
