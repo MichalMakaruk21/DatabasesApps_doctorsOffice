@@ -17,7 +17,65 @@ namespace DatabasesAppsdoctorsOffice {
 	{
 	public:
 		int user_id;
-		// Rêczne dodanie public
+	private: System::Windows::Forms::GroupBox^ gWorkHours;
+	public:
+	private: System::Windows::Forms::GroupBox^ gShema;
+	private: System::Windows::Forms::Button^ b10TO18;
+
+	private: System::Windows::Forms::Button^ b9TO17;
+
+	private: System::Windows::Forms::Button^ b8TO16;
+
+	private: System::Windows::Forms::Button^ b7TO15;
+	private: System::Windows::Forms::TextBox^ txtSatFrom;
+
+
+
+	private: System::Windows::Forms::Label^ label13;
+	private: System::Windows::Forms::TextBox^ txtFriFrom;
+
+
+	private: System::Windows::Forms::Label^ label12;
+	private: System::Windows::Forms::TextBox^ txtThuFrom;
+
+
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::TextBox^ txtWedFrom;
+
+
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::TextBox^ txtTueFrom;
+
+
+	private: System::Windows::Forms::Label^ label9;
+
+
+
+
+	private: System::Windows::Forms::Label^ label8;
+
+
+
+
+
+
+	private: System::Windows::Forms::GroupBox^ gUserEditor;
+	private: System::Windows::Forms::CheckBox^ chB_employee;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::TextBox^ txtLogin;
+	private: System::Windows::Forms::TextBox^ txtSurname;
+	private: System::Windows::Forms::TextBox^ txtName;
+	private: System::Windows::Forms::TextBox^ txtMonFrom;
+	private: System::Windows::Forms::TextBox^ txtSatTo;
+	private: System::Windows::Forms::TextBox^ txtFriTo;
+	private: System::Windows::Forms::TextBox^ txtThuTo;
+	private: System::Windows::Forms::TextBox^ txtWenTo;
+	private: System::Windows::Forms::TextBox^ txtTueTo;
+	private: System::Windows::Forms::TextBox^ txtMonTo;
+
+		   // Rêczne dodanie public
 	public: String^ db_conf = L" datasource=localhost; port=3306; username=root; password=root123; database=databasesapps_doctorsoffice";
 
 		  Program(int user)
@@ -59,19 +117,19 @@ namespace DatabasesAppsdoctorsOffice {
 	private: System::Windows::Forms::Button^ btnUsersSearch;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TabPage^ tabPage2;
-	private: System::Windows::Forms::GroupBox^ gUserEditor;
-	private: System::Windows::Forms::CheckBox^ chB_employee;
+
+
 	public:
 	private: System::Windows::Forms::Button^ btnDeleteUser;
 	public:
 	private: System::Windows::Forms::Button^ btnEditUser;
 	private: System::Windows::Forms::Button^ btnAddUser;
-	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::TextBox^ txtLogin;
-	private: System::Windows::Forms::TextBox^ txtSurname;
-	private: System::Windows::Forms::TextBox^ txtName;
+
+
+
+
+
+
 
 	private:
 		/// <summary>
@@ -88,6 +146,24 @@ namespace DatabasesAppsdoctorsOffice {
 		{
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tbPage_Users = (gcnew System::Windows::Forms::TabPage());
+			this->gWorkHours = (gcnew System::Windows::Forms::GroupBox());
+			this->txtMonFrom = (gcnew System::Windows::Forms::TextBox());
+			this->gShema = (gcnew System::Windows::Forms::GroupBox());
+			this->b10TO18 = (gcnew System::Windows::Forms::Button());
+			this->b9TO17 = (gcnew System::Windows::Forms::Button());
+			this->b8TO16 = (gcnew System::Windows::Forms::Button());
+			this->b7TO15 = (gcnew System::Windows::Forms::Button());
+			this->txtSatFrom = (gcnew System::Windows::Forms::TextBox());
+			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->txtFriFrom = (gcnew System::Windows::Forms::TextBox());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->txtThuFrom = (gcnew System::Windows::Forms::TextBox());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->txtWedFrom = (gcnew System::Windows::Forms::TextBox());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->txtTueFrom = (gcnew System::Windows::Forms::TextBox());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->btnDeleteUser = (gcnew System::Windows::Forms::Button());
 			this->btnEditUser = (gcnew System::Windows::Forms::Button());
 			this->btnAddUser = (gcnew System::Windows::Forms::Button());
@@ -112,8 +188,16 @@ namespace DatabasesAppsdoctorsOffice {
 			this->txtNewPassword = (gcnew System::Windows::Forms::TextBox());
 			this->txtCurrentPassword = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->txtMonTo = (gcnew System::Windows::Forms::TextBox());
+			this->txtTueTo = (gcnew System::Windows::Forms::TextBox());
+			this->txtWenTo = (gcnew System::Windows::Forms::TextBox());
+			this->txtThuTo = (gcnew System::Windows::Forms::TextBox());
+			this->txtFriTo = (gcnew System::Windows::Forms::TextBox());
+			this->txtSatTo = (gcnew System::Windows::Forms::TextBox());
 			this->tabControl1->SuspendLayout();
 			this->tbPage_Users->SuspendLayout();
+			this->gWorkHours->SuspendLayout();
+			this->gShema->SuspendLayout();
 			this->gUserEditor->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgwUsers))->BeginInit();
 			this->tabPage2->SuspendLayout();
@@ -132,6 +216,7 @@ namespace DatabasesAppsdoctorsOffice {
 			// 
 			// tbPage_Users
 			// 
+			this->tbPage_Users->Controls->Add(this->gWorkHours);
 			this->tbPage_Users->Controls->Add(this->btnDeleteUser);
 			this->tbPage_Users->Controls->Add(this->btnEditUser);
 			this->tbPage_Users->Controls->Add(this->btnAddUser);
@@ -147,6 +232,179 @@ namespace DatabasesAppsdoctorsOffice {
 			this->tbPage_Users->TabIndex = 0;
 			this->tbPage_Users->Text = L"Users";
 			this->tbPage_Users->UseVisualStyleBackColor = true;
+			// 
+			// gWorkHours
+			// 
+			this->gWorkHours->Controls->Add(this->txtSatTo);
+			this->gWorkHours->Controls->Add(this->txtFriTo);
+			this->gWorkHours->Controls->Add(this->txtThuTo);
+			this->gWorkHours->Controls->Add(this->txtWenTo);
+			this->gWorkHours->Controls->Add(this->txtTueTo);
+			this->gWorkHours->Controls->Add(this->txtMonTo);
+			this->gWorkHours->Controls->Add(this->txtMonFrom);
+			this->gWorkHours->Controls->Add(this->gShema);
+			this->gWorkHours->Controls->Add(this->txtSatFrom);
+			this->gWorkHours->Controls->Add(this->label13);
+			this->gWorkHours->Controls->Add(this->txtFriFrom);
+			this->gWorkHours->Controls->Add(this->label12);
+			this->gWorkHours->Controls->Add(this->txtThuFrom);
+			this->gWorkHours->Controls->Add(this->label11);
+			this->gWorkHours->Controls->Add(this->txtWedFrom);
+			this->gWorkHours->Controls->Add(this->label10);
+			this->gWorkHours->Controls->Add(this->txtTueFrom);
+			this->gWorkHours->Controls->Add(this->label9);
+			this->gWorkHours->Controls->Add(this->label8);
+			this->gWorkHours->Location = System::Drawing::Point(52, 633);
+			this->gWorkHours->Name = L"gWorkHours";
+			this->gWorkHours->Size = System::Drawing::Size(875, 503);
+			this->gWorkHours->TabIndex = 8;
+			this->gWorkHours->TabStop = false;
+			this->gWorkHours->Text = L"Hours";
+			// 
+			// txtMonFrom
+			// 
+			this->txtMonFrom->Location = System::Drawing::Point(184, 78);
+			this->txtMonFrom->Name = L"txtMonFrom";
+			this->txtMonFrom->Size = System::Drawing::Size(183, 38);
+			this->txtMonFrom->TabIndex = 19;
+			// 
+			// gShema
+			// 
+			this->gShema->Controls->Add(this->b10TO18);
+			this->gShema->Controls->Add(this->b9TO17);
+			this->gShema->Controls->Add(this->b8TO16);
+			this->gShema->Controls->Add(this->b7TO15);
+			this->gShema->Location = System::Drawing::Point(638, 64);
+			this->gShema->Name = L"gShema";
+			this->gShema->Size = System::Drawing::Size(200, 433);
+			this->gShema->TabIndex = 18;
+			this->gShema->TabStop = false;
+			this->gShema->Text = L"Shema";
+			// 
+			// b10TO18
+			// 
+			this->b10TO18->Location = System::Drawing::Point(41, 352);
+			this->b10TO18->Name = L"b10TO18";
+			this->b10TO18->Size = System::Drawing::Size(118, 65);
+			this->b10TO18->TabIndex = 3;
+			this->b10TO18->Text = L"10 - 18";
+			this->b10TO18->UseVisualStyleBackColor = true;
+			// 
+			// b9TO17
+			// 
+			this->b9TO17->Location = System::Drawing::Point(41, 255);
+			this->b9TO17->Name = L"b9TO17";
+			this->b9TO17->Size = System::Drawing::Size(118, 65);
+			this->b9TO17->TabIndex = 2;
+			this->b9TO17->Text = L"9 - 17";
+			this->b9TO17->UseVisualStyleBackColor = true;
+			// 
+			// b8TO16
+			// 
+			this->b8TO16->Location = System::Drawing::Point(41, 166);
+			this->b8TO16->Name = L"b8TO16";
+			this->b8TO16->Size = System::Drawing::Size(118, 65);
+			this->b8TO16->TabIndex = 1;
+			this->b8TO16->Text = L"8 - 16";
+			this->b8TO16->UseVisualStyleBackColor = true;
+			// 
+			// b7TO15
+			// 
+			this->b7TO15->Location = System::Drawing::Point(41, 71);
+			this->b7TO15->Name = L"b7TO15";
+			this->b7TO15->Size = System::Drawing::Size(118, 65);
+			this->b7TO15->TabIndex = 0;
+			this->b7TO15->Text = L"7 - 15";
+			this->b7TO15->UseVisualStyleBackColor = true;
+			// 
+			// txtSatFrom
+			// 
+			this->txtSatFrom->Location = System::Drawing::Point(184, 444);
+			this->txtSatFrom->Name = L"txtSatFrom";
+			this->txtSatFrom->Size = System::Drawing::Size(183, 38);
+			this->txtSatFrom->TabIndex = 16;
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(5, 433);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(129, 32);
+			this->label13->TabIndex = 15;
+			this->label13->Text = L"Saturday";
+			// 
+			// txtFriFrom
+			// 
+			this->txtFriFrom->Location = System::Drawing::Point(184, 363);
+			this->txtFriFrom->Name = L"txtFriFrom";
+			this->txtFriFrom->Size = System::Drawing::Size(183, 38);
+			this->txtFriFrom->TabIndex = 13;
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Location = System::Drawing::Point(10, 366);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(94, 32);
+			this->label12->TabIndex = 12;
+			this->label12->Text = L"Friday";
+			// 
+			// txtThuFrom
+			// 
+			this->txtThuFrom->Location = System::Drawing::Point(184, 297);
+			this->txtThuFrom->Name = L"txtThuFrom";
+			this->txtThuFrom->Size = System::Drawing::Size(183, 38);
+			this->txtThuFrom->TabIndex = 10;
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(5, 297);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(140, 32);
+			this->label11->TabIndex = 9;
+			this->label11->Text = L"Thuesday";
+			// 
+			// txtWedFrom
+			// 
+			this->txtWedFrom->Location = System::Drawing::Point(184, 230);
+			this->txtWedFrom->Name = L"txtWedFrom";
+			this->txtWedFrom->Size = System::Drawing::Size(183, 38);
+			this->txtWedFrom->TabIndex = 7;
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(10, 165);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(124, 32);
+			this->label10->TabIndex = 6;
+			this->label10->Text = L"Tuesday";
+			// 
+			// txtTueFrom
+			// 
+			this->txtTueFrom->Location = System::Drawing::Point(184, 162);
+			this->txtTueFrom->Name = L"txtTueFrom";
+			this->txtTueFrom->Size = System::Drawing::Size(183, 38);
+			this->txtTueFrom->TabIndex = 4;
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(6, 230);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(165, 32);
+			this->label9->TabIndex = 3;
+			this->label9->Text = L"Wenedsday";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(6, 77);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(116, 32);
+			this->label8->TabIndex = 0;
+			this->label8->Text = L"Monday";
 			// 
 			// btnDeleteUser
 			// 
@@ -189,7 +447,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->gUserEditor->Controls->Add(this->txtName);
 			this->gUserEditor->Location = System::Drawing::Point(38, 218);
 			this->gUserEditor->Name = L"gUserEditor";
-			this->gUserEditor->Size = System::Drawing::Size(861, 753);
+			this->gUserEditor->Size = System::Drawing::Size(861, 296);
 			this->gUserEditor->TabIndex = 4;
 			this->gUserEditor->TabStop = false;
 			this->gUserEditor->Text = L"User data editor";
@@ -197,17 +455,18 @@ namespace DatabasesAppsdoctorsOffice {
 			// chB_employee
 			// 
 			this->chB_employee->AutoSize = true;
-			this->chB_employee->Location = System::Drawing::Point(443, 552);
+			this->chB_employee->Location = System::Drawing::Point(77, 242);
 			this->chB_employee->Name = L"chB_employee";
 			this->chB_employee->Size = System::Drawing::Size(180, 36);
 			this->chB_employee->TabIndex = 5;
 			this->chB_employee->Text = L"Employee";
 			this->chB_employee->UseVisualStyleBackColor = true;
+			this->chB_employee->CheckedChanged += gcnew System::EventHandler(this, &Program::chB_employee_CheckedChanged);
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(85, 382);
+			this->label7->Location = System::Drawing::Point(75, 178);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(86, 32);
 			this->label7->TabIndex = 5;
@@ -216,7 +475,7 @@ namespace DatabasesAppsdoctorsOffice {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(71, 263);
+			this->label6->Location = System::Drawing::Point(71, 129);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(130, 32);
 			this->label6->TabIndex = 4;
@@ -225,7 +484,7 @@ namespace DatabasesAppsdoctorsOffice {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(67, 140);
+			this->label5->Location = System::Drawing::Point(71, 70);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(90, 32);
 			this->label5->TabIndex = 3;
@@ -233,21 +492,21 @@ namespace DatabasesAppsdoctorsOffice {
 			// 
 			// txtLogin
 			// 
-			this->txtLogin->Location = System::Drawing::Point(383, 392);
+			this->txtLogin->Location = System::Drawing::Point(383, 188);
 			this->txtLogin->Name = L"txtLogin";
 			this->txtLogin->Size = System::Drawing::Size(299, 38);
 			this->txtLogin->TabIndex = 2;
 			// 
 			// txtSurname
 			// 
-			this->txtSurname->Location = System::Drawing::Point(383, 278);
+			this->txtSurname->Location = System::Drawing::Point(383, 129);
 			this->txtSurname->Name = L"txtSurname";
 			this->txtSurname->Size = System::Drawing::Size(299, 38);
 			this->txtSurname->TabIndex = 1;
 			// 
 			// txtName
 			// 
-			this->txtName->Location = System::Drawing::Point(383, 140);
+			this->txtName->Location = System::Drawing::Point(383, 64);
 			this->txtName->Name = L"txtName";
 			this->txtName->Size = System::Drawing::Size(299, 38);
 			this->txtName->TabIndex = 0;
@@ -276,7 +535,7 @@ namespace DatabasesAppsdoctorsOffice {
 			// 
 			this->btnUsersSearch->Location = System::Drawing::Point(605, 80);
 			this->btnUsersSearch->Name = L"btnUsersSearch";
-			this->btnUsersSearch->Size = System::Drawing::Size(322, 68);
+			this->btnUsersSearch->Size = System::Drawing::Size(322, 48);
 			this->btnUsersSearch->TabIndex = 1;
 			this->btnUsersSearch->Text = L"Search";
 			this->btnUsersSearch->UseVisualStyleBackColor = true;
@@ -297,7 +556,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->tabPage2->Location = System::Drawing::Point(10, 48);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(2086, 1483);
+			this->tabPage2->Size = System::Drawing::Size(2380, 1483);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Password change";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -383,17 +642,62 @@ namespace DatabasesAppsdoctorsOffice {
 			this->label2->TabIndex = 0;
 			this->label2->Text = L"Curent password";
 			// 
+			// txtMonTo
+			// 
+			this->txtMonTo->Location = System::Drawing::Point(415, 78);
+			this->txtMonTo->Name = L"txtMonTo";
+			this->txtMonTo->Size = System::Drawing::Size(183, 38);
+			this->txtMonTo->TabIndex = 20;
+			// 
+			// txtTueTo
+			// 
+			this->txtTueTo->Location = System::Drawing::Point(415, 159);
+			this->txtTueTo->Name = L"txtTueTo";
+			this->txtTueTo->Size = System::Drawing::Size(183, 38);
+			this->txtTueTo->TabIndex = 21;
+			// 
+			// txtWenTo
+			// 
+			this->txtWenTo->Location = System::Drawing::Point(415, 227);
+			this->txtWenTo->Name = L"txtWenTo";
+			this->txtWenTo->Size = System::Drawing::Size(183, 38);
+			this->txtWenTo->TabIndex = 22;
+			// 
+			// txtThuTo
+			// 
+			this->txtThuTo->Location = System::Drawing::Point(415, 294);
+			this->txtThuTo->Name = L"txtThuTo";
+			this->txtThuTo->Size = System::Drawing::Size(183, 38);
+			this->txtThuTo->TabIndex = 23;
+			// 
+			// txtFriTo
+			// 
+			this->txtFriTo->Location = System::Drawing::Point(415, 360);
+			this->txtFriTo->Name = L"txtFriTo";
+			this->txtFriTo->Size = System::Drawing::Size(183, 38);
+			this->txtFriTo->TabIndex = 24;
+			// 
+			// txtSatTo
+			// 
+			this->txtSatTo->Location = System::Drawing::Point(415, 444);
+			this->txtSatTo->Name = L"txtSatTo";
+			this->txtSatTo->Size = System::Drawing::Size(183, 38);
+			this->txtSatTo->TabIndex = 25;
+			// 
 			// Program
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(2627, 1579);
+			this->ClientSize = System::Drawing::Size(2442, 1541);
 			this->Controls->Add(this->tabControl1);
 			this->Name = L"Program";
 			this->Text = L"Program";
 			this->tabControl1->ResumeLayout(false);
 			this->tbPage_Users->ResumeLayout(false);
 			this->tbPage_Users->PerformLayout();
+			this->gWorkHours->ResumeLayout(false);
+			this->gWorkHours->PerformLayout();
+			this->gShema->ResumeLayout(false);
 			this->gUserEditor->ResumeLayout(false);
 			this->gUserEditor->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgwUsers))->EndInit();
@@ -693,5 +997,14 @@ namespace DatabasesAppsdoctorsOffice {
 			clearGroupBoxControls(gUserEditor);
 		}
 	}
+private: System::Void chB_employee_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	
+	if (chB_employee->Checked) {
+		gWorkHours->Visible = true;
+	}
+	else {
+		gWorkHours->Visible = false;
+	}
+}
 };
 };
