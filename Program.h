@@ -71,7 +71,8 @@ namespace DatabasesAppsdoctorsOffice {
 	private: System::Windows::Forms::TextBox^ txtSatTo;
 	private: System::Windows::Forms::TextBox^ txtFriTo;
 	private: System::Windows::Forms::TextBox^ txtThuTo;
-	private: System::Windows::Forms::TextBox^ txtWenTo;
+	private: System::Windows::Forms::TextBox^ txtWedTo;
+
 	private: System::Windows::Forms::TextBox^ txtTueTo;
 	private: System::Windows::Forms::TextBox^ txtMonTo;
 
@@ -147,6 +148,12 @@ namespace DatabasesAppsdoctorsOffice {
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tbPage_Users = (gcnew System::Windows::Forms::TabPage());
 			this->gWorkHours = (gcnew System::Windows::Forms::GroupBox());
+			this->txtSatTo = (gcnew System::Windows::Forms::TextBox());
+			this->txtFriTo = (gcnew System::Windows::Forms::TextBox());
+			this->txtThuTo = (gcnew System::Windows::Forms::TextBox());
+			this->txtWedTo = (gcnew System::Windows::Forms::TextBox());
+			this->txtTueTo = (gcnew System::Windows::Forms::TextBox());
+			this->txtMonTo = (gcnew System::Windows::Forms::TextBox());
 			this->txtMonFrom = (gcnew System::Windows::Forms::TextBox());
 			this->gShema = (gcnew System::Windows::Forms::GroupBox());
 			this->b10TO18 = (gcnew System::Windows::Forms::Button());
@@ -188,12 +195,6 @@ namespace DatabasesAppsdoctorsOffice {
 			this->txtNewPassword = (gcnew System::Windows::Forms::TextBox());
 			this->txtCurrentPassword = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->txtMonTo = (gcnew System::Windows::Forms::TextBox());
-			this->txtTueTo = (gcnew System::Windows::Forms::TextBox());
-			this->txtWenTo = (gcnew System::Windows::Forms::TextBox());
-			this->txtThuTo = (gcnew System::Windows::Forms::TextBox());
-			this->txtFriTo = (gcnew System::Windows::Forms::TextBox());
-			this->txtSatTo = (gcnew System::Windows::Forms::TextBox());
 			this->tabControl1->SuspendLayout();
 			this->tbPage_Users->SuspendLayout();
 			this->gWorkHours->SuspendLayout();
@@ -238,7 +239,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->gWorkHours->Controls->Add(this->txtSatTo);
 			this->gWorkHours->Controls->Add(this->txtFriTo);
 			this->gWorkHours->Controls->Add(this->txtThuTo);
-			this->gWorkHours->Controls->Add(this->txtWenTo);
+			this->gWorkHours->Controls->Add(this->txtWedTo);
 			this->gWorkHours->Controls->Add(this->txtTueTo);
 			this->gWorkHours->Controls->Add(this->txtMonTo);
 			this->gWorkHours->Controls->Add(this->txtMonFrom);
@@ -260,6 +261,49 @@ namespace DatabasesAppsdoctorsOffice {
 			this->gWorkHours->TabIndex = 8;
 			this->gWorkHours->TabStop = false;
 			this->gWorkHours->Text = L"Hours";
+			this->gWorkHours->Visible = false;
+			// 
+			// txtSatTo
+			// 
+			this->txtSatTo->Location = System::Drawing::Point(415, 444);
+			this->txtSatTo->Name = L"txtSatTo";
+			this->txtSatTo->Size = System::Drawing::Size(183, 38);
+			this->txtSatTo->TabIndex = 25;
+			// 
+			// txtFriTo
+			// 
+			this->txtFriTo->Location = System::Drawing::Point(415, 360);
+			this->txtFriTo->Name = L"txtFriTo";
+			this->txtFriTo->Size = System::Drawing::Size(183, 38);
+			this->txtFriTo->TabIndex = 24;
+			// 
+			// txtThuTo
+			// 
+			this->txtThuTo->Location = System::Drawing::Point(415, 294);
+			this->txtThuTo->Name = L"txtThuTo";
+			this->txtThuTo->Size = System::Drawing::Size(183, 38);
+			this->txtThuTo->TabIndex = 23;
+			// 
+			// txtWedTo
+			// 
+			this->txtWedTo->Location = System::Drawing::Point(415, 227);
+			this->txtWedTo->Name = L"txtWedTo";
+			this->txtWedTo->Size = System::Drawing::Size(183, 38);
+			this->txtWedTo->TabIndex = 22;
+			// 
+			// txtTueTo
+			// 
+			this->txtTueTo->Location = System::Drawing::Point(415, 159);
+			this->txtTueTo->Name = L"txtTueTo";
+			this->txtTueTo->Size = System::Drawing::Size(183, 38);
+			this->txtTueTo->TabIndex = 21;
+			// 
+			// txtMonTo
+			// 
+			this->txtMonTo->Location = System::Drawing::Point(415, 78);
+			this->txtMonTo->Name = L"txtMonTo";
+			this->txtMonTo->Size = System::Drawing::Size(183, 38);
+			this->txtMonTo->TabIndex = 20;
 			// 
 			// txtMonFrom
 			// 
@@ -414,6 +458,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->btnDeleteUser->TabIndex = 7;
 			this->btnDeleteUser->Text = L"Delete";
 			this->btnDeleteUser->UseVisualStyleBackColor = true;
+			this->btnDeleteUser->Visible = false;
 			this->btnDeleteUser->Click += gcnew System::EventHandler(this, &Program::btnDeleteUser_Click);
 			// 
 			// btnEditUser
@@ -424,6 +469,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->btnEditUser->TabIndex = 6;
 			this->btnEditUser->Text = L"Edit";
 			this->btnEditUser->UseVisualStyleBackColor = true;
+			this->btnEditUser->Visible = false;
 			this->btnEditUser->Click += gcnew System::EventHandler(this, &Program::btnEditUser_Click);
 			// 
 			// btnAddUser
@@ -642,48 +688,6 @@ namespace DatabasesAppsdoctorsOffice {
 			this->label2->TabIndex = 0;
 			this->label2->Text = L"Curent password";
 			// 
-			// txtMonTo
-			// 
-			this->txtMonTo->Location = System::Drawing::Point(415, 78);
-			this->txtMonTo->Name = L"txtMonTo";
-			this->txtMonTo->Size = System::Drawing::Size(183, 38);
-			this->txtMonTo->TabIndex = 20;
-			// 
-			// txtTueTo
-			// 
-			this->txtTueTo->Location = System::Drawing::Point(415, 159);
-			this->txtTueTo->Name = L"txtTueTo";
-			this->txtTueTo->Size = System::Drawing::Size(183, 38);
-			this->txtTueTo->TabIndex = 21;
-			// 
-			// txtWenTo
-			// 
-			this->txtWenTo->Location = System::Drawing::Point(415, 227);
-			this->txtWenTo->Name = L"txtWenTo";
-			this->txtWenTo->Size = System::Drawing::Size(183, 38);
-			this->txtWenTo->TabIndex = 22;
-			// 
-			// txtThuTo
-			// 
-			this->txtThuTo->Location = System::Drawing::Point(415, 294);
-			this->txtThuTo->Name = L"txtThuTo";
-			this->txtThuTo->Size = System::Drawing::Size(183, 38);
-			this->txtThuTo->TabIndex = 23;
-			// 
-			// txtFriTo
-			// 
-			this->txtFriTo->Location = System::Drawing::Point(415, 360);
-			this->txtFriTo->Name = L"txtFriTo";
-			this->txtFriTo->Size = System::Drawing::Size(183, 38);
-			this->txtFriTo->TabIndex = 24;
-			// 
-			// txtSatTo
-			// 
-			this->txtSatTo->Location = System::Drawing::Point(415, 444);
-			this->txtSatTo->Name = L"txtSatTo";
-			this->txtSatTo->Size = System::Drawing::Size(183, 38);
-			this->txtSatTo->TabIndex = 25;
-			// 
 			// Program
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
@@ -809,6 +813,46 @@ namespace DatabasesAppsdoctorsOffice {
 
 			chB_employee->Checked = Convert::ToBoolean(dgwUsers->Rows[e->RowIndex]->Cells["Type"]->Value);
 
+
+			btnEditUser->Visible = true;
+			btnDeleteUser->Visible = true;
+
+
+			if (chB_employee->Checked) {
+				MySqlConnection^ db_conn = gcnew MySqlConnection(db_conf);
+				MySqlCommand^ query = gcnew MySqlCommand("SELECT * Form databasesapps_doctorsoffice.hours Where user_user_id="+id_record+";", db_conn);
+
+				MySqlDataReader^ data;
+
+				try
+				{
+					db_conn->Open();
+					data = query->ExecuteReader();
+
+					while (data->Read())
+					{
+						txtMonFrom->Text = data->GetString("mon_from");
+						txtMonTo->Text = data->GetString("mon_to");
+						txtTueFrom->Text = data->GetString("tue_from");
+						txtTueTo->Text = data->GetString("tue_to");
+						txtWedFrom->Text = data->GetString("wed_from");
+						txtWedTo->Text = data->GetString("wed_to");
+						txtThuFrom->Text = data->GetString("thu_from");
+						txtThuTo->Text = data->GetString("thu_to");
+						txtFriFrom->Text = data->GetString("fri_from");
+						txtFriTo->Text = data->GetString("fri_to");
+						txtSatFrom->Text = data->GetString("sat_from");
+						txtSatTo->Text = data->GetString("sat_to");
+
+					}
+					db_conn->Close();
+				}
+				catch (Exception^ systemError)
+				{
+					MessageBox::Show(systemError->Message);
+				}
+			}
+
 			//txtLogin->Text = dgwUsers->Rows[e->RowIndex]->Cells["Login"]->Value->ToString();
 			// Zaimplemetuj Alliasy w zapytaniu
 		}
@@ -848,7 +892,7 @@ namespace DatabasesAppsdoctorsOffice {
 
 			if (element->GetType() == TextBox::typeid) {
 				element->Text = "";
-				chB_employee->Checked = false;
+				//chB_employee->Checked = false;
 			}
 
 		}
@@ -893,6 +937,13 @@ namespace DatabasesAppsdoctorsOffice {
 				// default passowrd == user login
 				query->CommandText = "Insert Into databasesapps_doctorsoffice.user Set user_name = '" + txtLogin->Text + "', user_firstname = '" + txtName->Text + "', user_surname = '" + txtSurname->Text + "', user_type = " + user_type + ", user_password = md5('" + txtLogin->Text + "'); ";
 				query->ExecuteNonQuery();
+				
+				if (chB_employee->Checked) {
+					
+					query->CommandText = "Insert Into databasesapps_doctorsoffice.hours Set user_user_id=last_insert_id(), mon_from='" + txtMonFrom->Text + "', mon_to='" + txtMonTo->Text + "', tue_from='" + txtTueFrom->Text + "', tue_to='" + txtTueTo->Text + "', wed_from='" + txtWedFrom->Text + "', wed_to='" + txtWedTo->Text + "', thu_from='" + txtThuFrom->Text + "', thu_to='" + txtThuTo->Text + "', fri_from='" + txtFriFrom->Text + "', fri_to='" + txtFriTo->Text + "', sat_from='" + txtSatFrom->Text + "', sat_to='" + txtSatTo->Text + "'; ";
+
+					query->ExecuteNonQuery();
+				}
 				transaction->Commit();
 
 				MessageBox::Show("User has been added");
@@ -904,7 +955,7 @@ namespace DatabasesAppsdoctorsOffice {
 			db_conn->Close();
 			refereshDataGrid();
 			clearGroupBoxControls(gUserEditor);
-
+			clearGroupBoxControls(gWorkHours);
 		}
 	}
 	private: System::Void btnEditUser_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -938,11 +989,31 @@ namespace DatabasesAppsdoctorsOffice {
 			else {
 				try
 				{
+					query->CommandText = "Select * From databasesapps_doctorsoffice.hours Where user_user_id=" + id_record + "; ";
+					MySqlDataReader^ resoult = query->ExecuteReader();
+					resoult->Close();
+
 					// default passowrd == user login
 					query->CommandText = "Update databasesapps_doctorsoffice.user Set user_name = '" + txtLogin->Text + "', user_firstname = '" + txtName->Text + "', user_surname = '" + txtSurname->Text + "', user_type = " + user_type + " Where user_id = " + id_record + ";";
 					query->ExecuteNonQuery();
-					transaction->Commit();
 
+					if (resoult->HasRows == true && chB_employee->Checked == true) 
+					{
+						//Update
+						query->CommandText = "Update databasesapps_doctorsoffice.hours Set mon_from='" + txtMonFrom->Text + "', mon_to='" + txtMonTo->Text + "', tue_from='" + txtTueFrom->Text + "', tue_to='" + txtTueTo->Text + "', wed_from='" + txtWedFrom->Text + "', wed_to='" + txtWedTo->Text + "', thu_from='" + txtThuFrom->Text + "', thu_to='" + txtThuTo->Text + "', fri_from='" + txtFriFrom->Text + "', fri_to='" + txtFriTo->Text + "', sat_from='" + txtSatFrom->Text + "', sat_to='" + txtSatTo->Text + "'Where user_id = " + id_record + ";";
+
+						query->ExecuteNonQuery();
+					}
+					else if(chB_employee->Checked)
+					{
+						// Insert
+
+						query->CommandText = "Insert Into databasesapps_doctorsoffice.hours Set user_user_id=" + id_record + ", mon_from='" + txtMonFrom->Text + "', mon_to='" + txtMonTo->Text + "', tue_from='" + txtTueFrom->Text + "', tue_to='" + txtTueTo->Text + "', wed_from='" + txtWedFrom->Text + "', wed_to='" + txtWedTo->Text + "', thu_from='" + txtThuFrom->Text + "', thu_to='" + txtThuTo->Text + "', fri_from='" + txtFriFrom->Text + "', fri_to='" + txtFriTo->Text + "', sat_from='" + txtSatFrom->Text + "', sat_to='" + txtSatTo->Text + "'; ";
+
+						query->ExecuteNonQuery();
+					}
+
+					transaction->Commit();
 					MessageBox::Show("User has been modyfied");
 				}
 				catch (Exception^ systemError)
@@ -952,6 +1023,7 @@ namespace DatabasesAppsdoctorsOffice {
 				db_conn->Close();
 				refereshDataGrid();
 				clearGroupBoxControls(gUserEditor);
+				clearGroupBoxControls(gWorkHours);
 			}
 		}
 	};
@@ -981,8 +1053,12 @@ namespace DatabasesAppsdoctorsOffice {
 			{
 				if (MessageBox::Show("Are you sure you want to delete user " + txtLogin->Text + "?", "Warning!!!", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
 					// default passowrd == user login
+					query->CommandText = "DELETE FROM databasesapps_doctorsoffice.hours WHERE user_user_id=" + id_record + ";";
+					query->ExecuteNonQuery();
+
 					query->CommandText = "DELETE FROM databasesapps_doctorsoffice.user WHERE user_id=" + id_record + ";";
 					query->ExecuteNonQuery();
+
 					transaction->Commit();
 
 					MessageBox::Show("User has been deleted");
@@ -995,6 +1071,7 @@ namespace DatabasesAppsdoctorsOffice {
 			db_conn->Close();
 			refereshDataGrid();
 			clearGroupBoxControls(gUserEditor);
+			clearGroupBoxControls(gWorkHours);
 		}
 	}
 private: System::Void chB_employee_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -1005,6 +1082,7 @@ private: System::Void chB_employee_CheckedChanged(System::Object^ sender, System
 	else {
 		gWorkHours->Visible = false;
 	}
+	clearGroupBoxControls(gWorkHours);
 }
 };
 };
