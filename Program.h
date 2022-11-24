@@ -333,6 +333,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->b10TO18->TabIndex = 3;
 			this->b10TO18->Text = L"10 - 18";
 			this->b10TO18->UseVisualStyleBackColor = true;
+			this->b10TO18->Click += gcnew System::EventHandler(this, &Program::b10TO18_Click);
 			// 
 			// b9TO17
 			// 
@@ -342,6 +343,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->b9TO17->TabIndex = 2;
 			this->b9TO17->Text = L"9 - 17";
 			this->b9TO17->UseVisualStyleBackColor = true;
+			this->b9TO17->Click += gcnew System::EventHandler(this, &Program::b9TO17_Click);
 			// 
 			// b8TO16
 			// 
@@ -351,6 +353,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->b8TO16->TabIndex = 1;
 			this->b8TO16->Text = L"8 - 16";
 			this->b8TO16->UseVisualStyleBackColor = true;
+			this->b8TO16->Click += gcnew System::EventHandler(this, &Program::b8TO16_Click);
 			// 
 			// b7TO15
 			// 
@@ -360,6 +363,7 @@ namespace DatabasesAppsdoctorsOffice {
 			this->b7TO15->TabIndex = 0;
 			this->b7TO15->Text = L"7 - 15";
 			this->b7TO15->UseVisualStyleBackColor = true;
+			this->b7TO15->Click += gcnew System::EventHandler(this, &Program::b7TO15_Click);
 			// 
 			// txtSatFrom
 			// 
@@ -711,6 +715,19 @@ namespace DatabasesAppsdoctorsOffice {
 			this->ResumeLayout(false);
 
 		}
+
+	private: Void workTime(int timeStart) {
+
+		array<TextBox^>^ initalTime = { txtMonFrom, txtTueFrom, txtWedFrom, txtThuFrom, txtFriFrom ,txtSatFrom};
+		array<TextBox^>^endTime = { txtMonTo, txtTueTo, txtWedTo, txtThuTo, txtFriTo, txtSatTo};
+
+		for (int i = 0; i <= 5; i++)
+		{
+			initalTime[i]->Text = timeStart + ":00";
+			endTime[i]->Text = timeStart + 8 + ":00";
+		}
+
+	}
 #pragma endregion
 	private: System::Void btnUsersSearch_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1083,6 +1100,18 @@ private: System::Void chB_employee_CheckedChanged(System::Object^ sender, System
 		gWorkHours->Visible = false;
 	}
 	clearGroupBoxControls(gWorkHours);
+}
+private: System::Void b7TO15_Click(System::Object^ sender, System::EventArgs^ e) {
+	workTime(7);
+}
+private: System::Void b8TO16_Click(System::Object^ sender, System::EventArgs^ e) {
+	workTime(8);
+}
+private: System::Void b9TO17_Click(System::Object^ sender, System::EventArgs^ e) {
+	workTime(9);
+}
+private: System::Void b10TO18_Click(System::Object^ sender, System::EventArgs^ e) {
+	workTime(10);
 }
 };
 };
