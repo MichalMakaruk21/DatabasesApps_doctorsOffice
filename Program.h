@@ -820,7 +820,7 @@ namespace DatabasesAppsdoctorsOffice {
 
 			if (chB_employee->Checked) {
 				MySqlConnection^ db_conn = gcnew MySqlConnection(db_conf);
-				MySqlCommand^ query = gcnew MySqlCommand("SELECT * Form databasesapps_doctorsoffice.hours Where user_user_id="+id_record+";", db_conn);
+				MySqlCommand^ query = gcnew MySqlCommand("SELECT * From databasesapps_doctorsoffice.hours Where user_user_id="+id_record+";", db_conn);
 
 				MySqlDataReader^ data;
 
