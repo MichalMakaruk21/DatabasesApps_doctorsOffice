@@ -75,6 +75,9 @@ namespace DatabasesAppsdoctorsOffice {
 
 	private: System::Windows::Forms::TextBox^ txtTueTo;
 	private: System::Windows::Forms::TextBox^ txtMonTo;
+	private: System::Windows::Forms::TabPage^ tabPage1;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Label^ label14;
 
 		   // Rêczne dodanie public
 	public: String^ db_conf = L" datasource=localhost; port=3306; username=root; password=root123; database=databasesapps_doctorsoffice";
@@ -111,7 +114,8 @@ namespace DatabasesAppsdoctorsOffice {
 	private: System::Windows::Forms::TextBox^ txtNewPassword;
 	private: System::Windows::Forms::TextBox^ txtCurrentPassword;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::TabControl^ tabControl1;
+	private: System::Windows::Forms::TabControl^ tbPageOffer;
+
 	private: System::Windows::Forms::TabPage^ tbPage_Users;
 	private: System::Windows::Forms::DataGridView^ dgwUsers;
 	private: System::Windows::Forms::TextBox^ txtUserSearch;
@@ -145,7 +149,7 @@ namespace DatabasesAppsdoctorsOffice {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+			this->tbPageOffer = (gcnew System::Windows::Forms::TabControl());
 			this->tbPage_Users = (gcnew System::Windows::Forms::TabPage());
 			this->gWorkHours = (gcnew System::Windows::Forms::GroupBox());
 			this->txtSatTo = (gcnew System::Windows::Forms::TextBox());
@@ -195,7 +199,10 @@ namespace DatabasesAppsdoctorsOffice {
 			this->txtNewPassword = (gcnew System::Windows::Forms::TextBox());
 			this->txtCurrentPassword = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->tabControl1->SuspendLayout();
+			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->tbPageOffer->SuspendLayout();
 			this->tbPage_Users->SuspendLayout();
 			this->gWorkHours->SuspendLayout();
 			this->gShema->SuspendLayout();
@@ -203,17 +210,19 @@ namespace DatabasesAppsdoctorsOffice {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgwUsers))->BeginInit();
 			this->tabPage2->SuspendLayout();
 			this->gPasswordChange->SuspendLayout();
+			this->tabPage1->SuspendLayout();
 			this->SuspendLayout();
 			// 
-			// tabControl1
+			// tbPageOffer
 			// 
-			this->tabControl1->Controls->Add(this->tbPage_Users);
-			this->tabControl1->Controls->Add(this->tabPage2);
-			this->tabControl1->Location = System::Drawing::Point(12, -1);
-			this->tabControl1->Name = L"tabControl1";
-			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(2400, 1541);
-			this->tabControl1->TabIndex = 0;
+			this->tbPageOffer->Controls->Add(this->tbPage_Users);
+			this->tbPageOffer->Controls->Add(this->tabPage2);
+			this->tbPageOffer->Controls->Add(this->tabPage1);
+			this->tbPageOffer->Location = System::Drawing::Point(12, -1);
+			this->tbPageOffer->Name = L"tbPageOffer";
+			this->tbPageOffer->SelectedIndex = 0;
+			this->tbPageOffer->Size = System::Drawing::Size(2400, 1541);
+			this->tbPageOffer->TabIndex = 0;
 			// 
 			// tbPage_Users
 			// 
@@ -692,15 +701,43 @@ namespace DatabasesAppsdoctorsOffice {
 			this->label2->TabIndex = 0;
 			this->label2->Text = L"Curent password";
 			// 
+			// tabPage1
+			// 
+			this->tabPage1->Controls->Add(this->textBox1);
+			this->tabPage1->Controls->Add(this->label14);
+			this->tabPage1->Location = System::Drawing::Point(10, 48);
+			this->tabPage1->Name = L"tabPage1";
+			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage1->Size = System::Drawing::Size(2380, 1483);
+			this->tabPage1->TabIndex = 2;
+			this->tabPage1->Text = L"tabPage1";
+			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// label14
+			// 
+			this->label14->AutoSize = true;
+			this->label14->Location = System::Drawing::Point(85, 71);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(78, 32);
+			this->label14->TabIndex = 0;
+			this->label14->Text = L"Offer";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(472, 86);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(504, 38);
+			this->textBox1->TabIndex = 1;
+			// 
 			// Program
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(2442, 1541);
-			this->Controls->Add(this->tabControl1);
+			this->Controls->Add(this->tbPageOffer);
 			this->Name = L"Program";
 			this->Text = L"Program";
-			this->tabControl1->ResumeLayout(false);
+			this->tbPageOffer->ResumeLayout(false);
 			this->tbPage_Users->ResumeLayout(false);
 			this->tbPage_Users->PerformLayout();
 			this->gWorkHours->ResumeLayout(false);
@@ -712,6 +749,8 @@ namespace DatabasesAppsdoctorsOffice {
 			this->tabPage2->ResumeLayout(false);
 			this->gPasswordChange->ResumeLayout(false);
 			this->gPasswordChange->PerformLayout();
+			this->tabPage1->ResumeLayout(false);
+			this->tabPage1->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
